@@ -1,0 +1,12 @@
+# 忽略 Allure 生成的结果和报告
+allure-results/
+allure-report/
+
+# 忽略 Python 缓存和日志
+__pycache__/
+*.pyc
+*.log
+
+# 忽略虚拟环境（如果你是在项目内建的 venv）
+venv/
+.env
