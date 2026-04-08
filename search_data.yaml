@@ -1,5 +1,16 @@
-# 商品搜索测试数据
-- 毛巾
-- 床单
-- 不存在的火星商品
-- 硅胶
+search_cases:
+  - keyword: "按摩刷"       # 正向用例：精准搜索
+    expect_count: 1
+    http_status: 200
+  - keyword: "猫粮"         # 正向用例：模糊搜索
+    expect_count: 5
+    http_status: 200
+  - keyword: "@#¥%"         # 异常用例：特殊字符
+    expect_count: 0
+    http_status: 200
+  - keyword: ""             # 异常用例：空关键词
+    expect_count: 0
+    http_status: 200
+  - keyword: "1=1"          # 安全测试：SQL注入尝试
+    expect_count: 0
+    http_status: 200
